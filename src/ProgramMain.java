@@ -1,4 +1,5 @@
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
@@ -8,14 +9,12 @@ import javax.swing.JFrame;
  */
 public class ProgramMain {
 
-    // static final int width = 1000;
-    // static final int height = 1000;
     public static void main(String[] args){
         SwingUtilities.invokeLater(ProgramMain::buildStartScreen);
     }
 
     /**
-     * Creates program window, adds start button
+     * Creates program window, adds start button AAAAQA
      */
     private static void buildStartScreen() {
         System.out.println("GUI");
@@ -23,14 +22,12 @@ public class ProgramMain {
         JFrame frame = new JFrame("Fourier Series Drawing");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // TODO: Make this adjust to user screen size
-        // frame.setSize(ProgramMain.FRAME_WIDTH, ProgramMain.FRAME_HEIGHT);
-
         // Start button which lets user begin drawing
         JButton button = new JButton("Begin Drawing");
-        frame.add(button, BorderLayout.SOUTH);
+        frame.add(button, BorderLayout.NORTH);
 
         // Displays frame
+        frame.setPreferredSize(new Dimension(1000, 1000));
         frame.pack();
         frame.setVisible(true);
     }

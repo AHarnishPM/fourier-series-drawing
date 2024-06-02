@@ -14,7 +14,7 @@ public class ProgramMain {
     }
 
     /**
-     * Creates program window, adds start button AAAAQA
+     * Creates program window, adds start button
      */
     private static void buildStartScreen() {
         System.out.println("GUI");

@@ -67,16 +67,16 @@ public class drawingInputPanel extends JPanel implements MouseMotionListener {
          */
         public void addPoint(Point point) {
             points.add(point);
-            // System.out.println(points);
         }
 
         /**
-         * Draws a line between two most recent points
+         * Draws a line between all successive points in curve
          * @param g Graphics object to be painted on
          */
         public void drawLine(Graphics g) {
             int end = points.size()-1;
 
+            // Draws all points in curve, could be a more efficient method
             while (end > 0) {
                 Point lastPoint = points.get(end);
                 Point secondLastPoint = points.get(end - 1);

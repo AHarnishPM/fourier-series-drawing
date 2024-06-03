@@ -1,6 +1,7 @@
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import javax.swing.JButton;
+import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 import javax.swing.JFrame;
 
@@ -17,7 +18,6 @@ public class ProgramMain {
      * Creates program window, adds start button
      */
     private static void buildStartScreen() {
-        System.out.println("GUI");
 
         JFrame frame = new JFrame("Fourier Series Drawing");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
@@ -26,8 +26,11 @@ public class ProgramMain {
         JButton button = new JButton("Begin Drawing");
         frame.add(button, BorderLayout.NORTH);
 
+        // Builds drawing panel
+        drawingInputPanel drawPanel = new drawingInputPanel();
+        frame.add(drawPanel);
+
         // Displays frame
-        frame.setPreferredSize(new Dimension(1000, 1000));
         frame.pack();
         frame.setVisible(true);
     }

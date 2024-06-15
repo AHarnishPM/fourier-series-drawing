@@ -1,5 +1,6 @@
+package fsd;
+
 import java.awt.BorderLayout;
-import java.awt.Dimension;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
@@ -22,13 +23,30 @@ public class ProgramMain {
         JFrame frame = new JFrame("Fourier Series Drawing");
         frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 
-        // Start button which lets user begin drawing
-        JButton button = new JButton("Begin Drawing");
-        frame.add(button, BorderLayout.NORTH);
+        // Print button which lets user print line data to System.out
+        JButton printButton = new JButton("Print drawing string");
+        frame.add(printButton, BorderLayout.NORTH);
+
+        // Reset button which lets user restart the program and draw a new shape
+        JButton resetButton = new JButton("Reset drawing");
+        frame.add(resetButton, BorderLayout.NORTH);
+
+        JPanel buttonPanel = new JPanel();
+        buttonPanel.add(printButton, BorderLayout.WEST);
+        buttonPanel.add(resetButton, BorderLayout.EAST);
+        frame.add(buttonPanel, BorderLayout.NORTH);
+
 
         // Builds drawing panel
         drawingInputPanel drawPanel = new drawingInputPanel();
         frame.add(drawPanel);
+
+        // Prints curve data
+        printButton.addActionListener(e -> drawPanel.printCurve());
+
+        // Resets program
+        resetButton.addActionListener(e -> drawPanel.restart());
+
 
         // Displays frame
         frame.pack();
